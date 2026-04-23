@@ -25,17 +25,27 @@ public string Name { get; set; } //Namn på karaktären
         Attack = attack;
         Defense = defense;
         IsAlive = true;
+        Stamina = 100; 
     }
 public void AttackEnemy(Fighter enemy) //Metod för att attackera en annan fighter (alltså denna tidigare fighterns fiende.)
 {
+    if (Stamina <= 0) //kollar om spelaren har tillräckligt med stamina
+    {
+        Console.WriteLine($"{Name} är för trött för att attackera!");
+        return;
+    }
     int damage = Attack - enemy.Defense;
 
-    if (damage < 0) 
-        damage = 0;
+    if (damage < 0)
+    {
+      damage = 0;
+      Console.WriteLine("Ingen skada gjord! ");
+    }
+        
 
     enemy.Health -= damage; //Tar bort HP från enemy.
 
-    Console.WriteLine($"{Name} attackerar {enemy.Name} och gör {damage} skada!");
+ Console.WriteLine($"{Name} attackerar {enemy.Name} och gör {damage} skada! ({enemy.Health} HP kvar)");
 }
 
 

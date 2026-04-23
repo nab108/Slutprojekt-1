@@ -12,6 +12,7 @@ class Program
         Boss boss = new Boss("Dragon", 200, 15, 10, 5, 40);
 
         Console.WriteLine("FIGHT START!");
+        Console.WriteLine("Hero attackerar först!");
         Console.WriteLine("Tryck ENTER för att spela en runda");
 
         // Testar input så programmet inte kraschar
