@@ -1,17 +1,42 @@
-﻿using System;
+﻿using System.Collections.Generic;
+using System;
 using Slutprojekt1;
 //En konstruktor startar upp ett objekt och ger det värden direkt
 class Program
 {
     static void Main()
     {
+        
         // Skapar spelaren
         Fighter hero = new Fighter("Hero", 120, 20, 10);
 
         // Skapar bossen
         Boss boss = new Boss("Dragon", 200, 15, 10, 5, 40);
 
-        Console.WriteLine("FIGHT START!");
+        //Lista som lagrar alla fighters i spelet 
+        List<Fighter> fighters = new List<Fighter>();
+        fighters.Add(hero);
+        fighters.Add(boss);
+
+        foreach (Fighter f in fighters)
+        {
+            //Skriver ut alla fighters som finns i listan
+         Console.WriteLine($"Fighter: {f.Name}");
+        }
+
+
+        //Lista med enemies
+        List<Enemy> enemies = new List<Enemy>();
+        enemies.Add(boss);
+
+        foreach (Enemy e in enemies)
+        {
+            //Skriver ut alla enemies som finns i listan
+         Console.WriteLine($"Enemy: {e.Name}");
+        }
+
+        //Starta fight mellan spelaren och bossen
+        Console.WriteLine("FIGHT START!"); 
         Console.WriteLine("Hero attackerar först!");
         Console.WriteLine("Tryck ENTER för att spela en runda");
 
